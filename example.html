@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Введение &#8212; FProject 30.09.2019 documentation</title>
+    <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="static/documentation_options.js"></script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <script type="text/javascript" src="static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to FProject’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+ 
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>Введение<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>Наименование и область применения<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Документация к Telegram боту “Текстовый квест”</p>
+<p><em>Версия игры 1.0</em></p>
+</div>
+</div>
+<div class="section" id="id3">
+<h1>Начало работы<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id4">
+<h2>Подготовка к использованию<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Скачать мобильное приложение Telegram;</p></li>
+<li><p>В поисковой строке ввести название бота, а именно &#64;MyTextQuestBot;</p></li>
+<li><p>Работа приложения начинается с кнопки “СТАРТ”.</p></li>
+</ol>
+<p>После отправки сообщения пользователем, бот извлекает из Базы Данных диалоги, согласно нумерации страницы. Номер страницы начинается с 1(единицы) и обновляется по ходу прохождения квеста.
+После каждой страницы выводится клавиатура с вариантами дальнейшего прохождения квеста. Большинство вариантов ответа влияют на очки характеристик <a class="footnote-reference brackets" href="#id10" id="id5">1</a> игрока, которые, в свою очередь, влияют на исход битвы с противником.</p>
+<div class="section" id="id6">
+<h3>Характеристики<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Здоровье - если очки здоровья равны 0 (нулю), то игра считается проиграной и начинается сначала.</p></li>
+<li><p>Атака - наносимый врагу урон (рассчитывается как Здоровье минус Атака противника).</p></li>
+<li><p>Защита - удержание урона противника (рассчитывается как Атака минус Защита противника).</p></li>
+</ul>
+<p>Характеристики противника соответсвуют характеристикам игрока. Очки характеристик фиксированы для каждого противника.</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>Прохождение<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>Квест начинается с команды “/start”.</p>
+<div class="figure align-center" id="id11">
+<img alt="images/start.jpg" src="images/start.jpg" />
+<p class="caption"><span class="caption-text"><em>Рис.1 - Начало квеста</em></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+<p>Выбор “Смириться”: Здоровье +2, Защита -1</p>
+<p>Выбор “Не спать ночь, но всё сделать”: Здоровье -1, Защита +2</p>
+<div class="figure align-center" id="id12">
+<img alt="images/month.jpg" src="images/month.jpg" />
+<p class="caption"><span class="caption-text"><em>Рис.2 - Первое разветвление</em></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+<p>Продолжение после двух веток одиноковое, разница лишь в изменениях статов.</p>
+<div class="figure align-center" id="id13">
+<img alt="images/vetka_one.jpg" src="images/vetka_one.jpg" />
+<p class="caption"><span class="caption-text"><em>Рис.3 - Слияние разветвления</em></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</div>
+<p>Если выбрать “Да ну нет!”, оружие “руки” урон +1</p>
+<p>Если выбрать “Пойду проверю”, оружие “дубина” урон +3</p>
+<div class="figure align-center" id="id14">
+<a class="reference internal image-reference" href="images/go_to_park.jpg"><img alt="images/go_to_park.jpg" src="images/go_to_park.jpg" style="width: 320.0px; height: 640.0px;" /></a>
+<p class="caption"><span class="caption-text"><em>Рис.4 - Второе разветвление</em></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</div>
+<p>Противники выбираются случайным образом. Каждый противник имеет разные характеристики. Полный список противников представлен после прохождения</p>
+<div class="figure align-center" id="id15">
+<img alt="images/vetka_two.jpg" src="images/vetka_two.jpg" />
+<p class="caption"><span class="caption-text"><em>Рис.5 - Слияние разветвления</em></span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</div>
+<p>Каждый удар несёт за собой изменение очков здоровья как у игрока, так и у противника. Таким образом, игрок может выиграть или проиграть.</p>
+<div class="figure align-center" id="id16">
+<a class="reference internal image-reference" href="images/hit.jpg"><img alt="images/hit.jpg" src="images/hit.jpg" style="width: 320.0px; height: 640.0px;" /></a>
+<p class="caption"><span class="caption-text"><em>Рис.6 - Битва</em></span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+</div>
+<p>В случае поражения игрок может начать квест заново. В случае победы игроку предоставится возможность распределить полученные баллы на статы: здоровье, атака, защита.</p>
+<div class="figure align-center" id="id17">
+<img alt="images/win_die.jpg" src="images/win_die.jpg" />
+<p class="caption"><span class="caption-text"><em>Рис.7 - Победа или поражение</em></span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+</div>
+<p>В версии 1.0 игра завершается после распределния всех баллов.</p>
+<div class="figure align-center" id="id18">
+<img alt="images/choice.jpg" src="images/choice.jpg" />
+<p class="caption"><span class="caption-text"><em>Рис.8 - Распределение баллов</em></span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>Противники<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p><em>v.1.0</em></p>
+<table class="colwidths-given docutils align-default" id="id19">
+<caption><span class="caption-text"><strong>Список противников и их характеристики:</strong></span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 53%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Характеристики  Противники</p></th>
+<th class="head"><p>Здоровье</p></th>
+<th class="head"><p>Атака</p></th>
+<th class="head"><p>Защита</p></th>
+<th class="head"><p>Баллы</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Вас поразила искра вдохновения</p></td>
+<td><p>5</p></td>
+<td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>На вас напала ангина</p></td>
+<td><p>7</p></td>
+<td><p>4</p></td>
+<td><p>3</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>На вас напал мини-вампирчик</p></td>
+<td><p>9</p></td>
+<td><p>5</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id9">
+<h1>Сноски<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h1>
+<dl class="footnote brackets">
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id5">1</a></span></dt>
+<dd><p>Очки характеристик - численное значение характеристик.</p>
+</dd>
+</dl>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">FProject</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Введение</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Наименование и область применения</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id3">Начало работы</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Подготовка к использованию</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">Прохождение</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">Противники</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id9">Сноски</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to FProject’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Smirnova.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="sources/example.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
